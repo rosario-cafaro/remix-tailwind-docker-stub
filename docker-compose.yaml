@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  web:
+    container_name: promuoviti-remix-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV:-development}
+    volumes:
+      - .:/usr/src/promuoviti
+      - /usr/src/promuoviti/node_modules
+    ports:
+      - "3000:3000"
+      - "8002:8002"
+  postgres:
+    container_name: promuoviti-postgress
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=promuoviti
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
