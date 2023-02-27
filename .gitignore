@@ -7,3 +7,6 @@ package-lock.json
 .DS_Store
 postgres-data
 .idea
+.history
+/app/styles/app.css
+.devcontainer
