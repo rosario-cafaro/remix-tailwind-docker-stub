@@ -1,1 +1,1 @@
-# promuoviti.net remix.js
+# remix.js - tailwindcss - postgres

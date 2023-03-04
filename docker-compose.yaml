@@ -1,26 +1,26 @@
 version: "3.9"
 services:
   web:
-    container_name: promuoviti-remix-web
+    container_name: remix-tailwind-web
     build:
       context: .
       dockerfile: Dockerfile
       args:
         NODE_ENV: ${NODE_ENV:-development}
     volumes:
-      - .:/usr/src/promuoviti
-      - /usr/src/promuoviti/node_modules
+      - .:/usr/src/remix-tailwind
+      - /usr/src/remix-tailwind/node_modules
     ports:
       - "3000:3000"
       - "8002:8002"
   postgres:
-    container_name: promuoviti-postgress
+    container_name: remix-tailwind-postgress
     image: postgres:latest
     restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=promuoviti
+      - POSTGRES_DB=remix-tailwind
     ports:
       - "5432:5432"
     volumes:

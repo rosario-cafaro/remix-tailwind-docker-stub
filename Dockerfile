@@ -1,6 +1,8 @@
 FROM node:19.7-alpine
 
-WORKDIR /usr/src/promuoviti
+ENV TAILWIND_MODE=watch
+
+WORKDIR /usr/src/remix-tailwind
 
 COPY package*.json ./
 
